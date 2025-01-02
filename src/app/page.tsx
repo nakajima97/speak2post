@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Button, Checkbox, Container, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, Slider, TextField, Typography } from '@mui/material';
 
 interface InputScreenProps {
@@ -15,9 +16,11 @@ const InputScreen: React.FC<InputScreenProps> = () => {
   const [showTimeline, setShowTimeline] = useState(false);
   const [showGraph, setShowGraph] = useState(false);
   const [infoAmount, setInfoAmount] = useState('summary');
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    router.push('/record');
   };
 
   return (

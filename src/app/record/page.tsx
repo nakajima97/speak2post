@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardContent, Typography, List, ListItem, Container } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 const RecordingScreen = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [topics, setTopics] = useState<string[]>([]);
   const [recordingTime, setRecordingTime] = useState(0);
+    const router = useRouter();
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -29,6 +31,7 @@ const RecordingScreen = () => {
     // Implement actual stop recording logic here
     // For now, we'll just pass a dummy Blob
     // onStop(new Blob());
+    router.push('/processing');
   };
 
   // Simulating real-time transcription and topic extraction
