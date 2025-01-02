@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { Box, CircularProgress, Typography } from '@mui/material';
+import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
 
 const ProcessingScreen = () => {
   const router = useRouter();
@@ -16,7 +16,13 @@ const ProcessingScreen = () => {
   }, [router]);
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" height="64">
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="64"
+    >
       <CircularProgress size={64} thickness={4} />
       <Typography variant="h6" component="p" mt={4} color="textSecondary">
         Processing your recording...

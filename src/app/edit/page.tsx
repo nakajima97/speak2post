@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react';
-import { TextField, Button, Box } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 const EditScreen = () => {
-  const [editedText, setEditedText] = useState( '');
-    const router = useRouter();
+  const [editedText, setEditedText] = useState('');
+  const router = useRouter();
 
   const handleSave = () => {
     router.push('/result');
@@ -15,7 +15,6 @@ const EditScreen = () => {
   const handleCancel = () => {
     router.push('/result');
   };
-
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

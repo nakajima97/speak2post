@@ -1,5 +1,12 @@
-import React from 'react';
-import { AppBar, Container, CssBaseline, Toolbar, Typography, Box } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Container,
+  CssBaseline,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import type React from 'react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,9 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Toolbar>
       </AppBar>
       <Container>
-        <Box my={4}>
-          {children}
-        </Box>
+        <Box my={4}>{children}</Box>
       </Container>
     </>
   );

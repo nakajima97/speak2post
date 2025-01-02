@@ -1,15 +1,23 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Button, Card, CardContent, Typography, List, ListItem, Container } from '@mui/material';
+import {
+  Button,
+  Card,
+  CardContent,
+  Container,
+  List,
+  ListItem,
+  Typography,
+} from '@mui/material';
 import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 
 const RecordingScreen = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [topics, setTopics] = useState<string[]>([]);
   const [recordingTime, setRecordingTime] = useState(0);
-    const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -38,8 +46,13 @@ const RecordingScreen = () => {
   useEffect(() => {
     if (isRecording) {
       const transcriptionInterval = setInterval(() => {
-        setTranscript((prevTranscript) => prevTranscript + ' Lorem ipsum dolor sit amet.');
-        setTopics((prevTopics) => [...prevTopics, `Topic ${prevTopics.length + 1}`]);
+        setTranscript(
+          (prevTranscript) => `${prevTranscript} Lorem ipsum dolor sit amet.`,
+        );
+        setTopics((prevTopics) => [
+          ...prevTopics,
+          `Topic ${prevTopics.length + 1}`,
+        ]);
       }, 2000);
 
       return () => clearInterval(transcriptionInterval);
@@ -55,7 +68,13 @@ const RecordingScreen = () => {
         {isRecording ? 'Recording...' : 'Ready to record'}
       </Typography>
 
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '16px',
+        }}
+      >
         {!isRecording ? (
           <Button variant="contained" color="primary" onClick={startRecording}>
             Start Recording
@@ -80,8 +99,8 @@ const RecordingScreen = () => {
         <CardContent>
           <Typography variant="h6">Real-time Topics</Typography>
           <List>
-            {topics.map((topic, index) => (
-              <ListItem key={index}>{topic}</ListItem>
+            {topics.map((topic) => (
+              <ListItem key={topic}>{topic}</ListItem>
             ))}
           </List>
         </CardContent>

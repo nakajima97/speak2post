@@ -1,14 +1,27 @@
-"use client";
+'use client';
 
-import React, { useState } from 'react';
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  Slider,
+  TextField,
+  Typography,
+} from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { Box, Button, Checkbox, Container, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, Slider, TextField, Typography } from '@mui/material';
+import type React from 'react';
+import { useState } from 'react';
 
-interface InputScreenProps {
-  onNext: (settings: any) => void;
-}
-
-const InputScreen: React.FC<InputScreenProps> = () => {
+const InputScreen = () => {
   const [wordCount, setWordCount] = useState(500);
   const [styleUrl, setStyleUrl] = useState('');
   const [stylePrompt, setStylePrompt] = useState('');
@@ -71,8 +84,16 @@ const InputScreen: React.FC<InputScreenProps> = () => {
             value={outputFormat}
             onChange={(e) => setOutputFormat(e.target.value)}
           >
-            <FormControlLabel value="plaintext" control={<Radio />} label="Plain Text" />
-            <FormControlLabel value="markdown" control={<Radio />} label="Markdown" />
+            <FormControlLabel
+              value="plaintext"
+              control={<Radio />}
+              label="Plain Text"
+            />
+            <FormControlLabel
+              value="markdown"
+              control={<Radio />}
+              label="Markdown"
+            />
           </RadioGroup>
         </FormControl>
 
@@ -102,17 +123,20 @@ const InputScreen: React.FC<InputScreenProps> = () => {
             value={infoAmount}
             onChange={(e) => setInfoAmount(e.target.value)}
           >
-            <FormControlLabel value="summary" control={<Radio />} label="Overall Summary" />
-            <FormControlLabel value="topics" control={<Radio />} label="Topic-wise Summary" />
+            <FormControlLabel
+              value="summary"
+              control={<Radio />}
+              label="Overall Summary"
+            />
+            <FormControlLabel
+              value="topics"
+              control={<Radio />}
+              label="Topic-wise Summary"
+            />
           </RadioGroup>
         </FormControl>
 
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-        >
+        <Button type="submit" fullWidth variant="contained" color="primary">
           Next
         </Button>
       </Box>

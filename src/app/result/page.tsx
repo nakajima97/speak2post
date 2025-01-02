@@ -1,19 +1,28 @@
-'use client'
+'use client';
 
-import React from 'react';
-import { Card, CardContent, CardHeader, Typography, List, ListItem, Button, Box } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  List,
+  ListItem,
+  Typography,
+} from '@mui/material';
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 const ResultScreen = () => {
-    const router = useRouter();
+  const router = useRouter();
 
   const showTimeline = true;
   const showGraph = true;
 
   const handleEdit = () => {
     router.push('/edit');
-  }
-  
+  };
+
   return (
     <Box sx={{ '& > :not(style)': { m: 2 } }}>
       <Card>
