@@ -1,14 +1,9 @@
 'use client';
 
-import {
-  Button,
-  Card,
-  CardContent,
-  Container,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material';
+import RecordingControls from '@/features/transcription/components/RecordingControls';
+import TopicsCard from '@/features/transcription/components/TopicsCard';
+import TranscriptionCard from '@/features/transcription/components/TranscriptionCard';
+import { Container, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -68,43 +63,15 @@ const RecordingScreen = () => {
         {isRecording ? 'Recording...' : 'Ready to record'}
       </Typography>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '16px',
-        }}
-      >
-        {!isRecording ? (
-          <Button variant="contained" color="primary" onClick={startRecording}>
-            Start Recording
-          </Button>
-        ) : (
-          <Button variant="contained" color="error" onClick={stopRecording}>
-            Stop Recording
-          </Button>
-        )}
-      </div>
+      <RecordingControls
+        isRecording={isRecording}
+        startRecording={startRecording}
+        stopRecording={stopRecording}
+      />
 
-      <Card variant="outlined" style={{ marginBottom: '16px' }}>
-        <CardContent>
-          <Typography variant="h6">Real-time Transcription</Typography>
-          <Typography variant="body2" color="textSecondary">
-            {transcript}
-          </Typography>
-        </CardContent>
-      </Card>
+      <TranscriptionCard transcript={transcript} />
 
-      <Card variant="outlined">
-        <CardContent>
-          <Typography variant="h6">Real-time Topics</Typography>
-          <List>
-            {topics.map((topic) => (
-              <ListItem key={topic}>{topic}</ListItem>
-            ))}
-          </List>
-        </CardContent>
-      </Card>
+      <TopicsCard topics={topics} />
     </Container>
   );
 };
