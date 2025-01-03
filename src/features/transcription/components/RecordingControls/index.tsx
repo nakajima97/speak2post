@@ -7,7 +7,11 @@ type RecordingControlsProps = {
   stopRecording: () => void;
 };
 
-const RecordingControls = ({ isRecording, startRecording, stopRecording }: RecordingControlsProps) => (
+const RecordingControls = ({
+  isRecording,
+  startRecording,
+  stopRecording,
+}: RecordingControlsProps) => (
   <div
     style={{
       display: 'flex',

@@ -1,11 +1,11 @@
 'use client';
 
+import RecordingControls from '@/features/transcription/components/RecordingControls';
+import TopicsCard from '@/features/transcription/components/TopicsCard';
+import TranscriptionCard from '@/features/transcription/components/TranscriptionCard';
 import { Container, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import RecordingControls from '@/features/transcription/components/RecordingControls';
-import TranscriptionCard from '@/features/transcription/components/TranscriptionCard';
-import TopicsCard from '@/features/transcription/components/TopicsCard';
 
 const RecordingScreen = () => {
   const [isRecording, setIsRecording] = useState(false);
